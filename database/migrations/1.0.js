@@ -9,7 +9,7 @@ module.exports = {
             // Here we write our migration function
             let db = new sqlite3.Database('./database/InvoicingApp.db');
             // enabling foreign key constraints on sqlite db
-            db.run(`PRAGME foreign_keys = ON`);
+            db.run(`PRAGMA foreign_keys = ON`);
             //The serialize() is used to specify that the queries should be run sequentially and not simultaneously
             db.serialize(function() {
                 db.run(`CREATE TABLE users (
@@ -20,7 +20,7 @@ module.exports = {
                     password TEXT
                 )`);
 
-                db.run(`CRATE TABLE invoices (
+                db.run(`CREATE TABLE invoices (
                     id INTEGER PRIMARY KEY,
                     name TEXT,
                     user_id INTEGER,
